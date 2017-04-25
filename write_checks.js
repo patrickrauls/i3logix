@@ -21,9 +21,9 @@ let string_this_float = (float) => {
         } else if (period < 20) {
             return teens[period - 10] + powers[array.length - index - 1] + ' ';
         } else if (period < 100 && period % 10 !== 0) {
-            return tens[period[0] - 2] + '-' + units[period[1] - 1] + powers[array.length - index - 1] + ' ';
+            return tens[Math.floor(period/10) - 2] + '-' + units[period[period.length - 1] - 1] + powers[array.length - index - 1] + ' ';
         } else if (period < 100) {
-            return tens[period[0] - 2] + powers[array.length - index - 1] + ' ';
+            return tens[Math.floor(period/10) - 2] + powers[array.length - index - 1] + ' ';
         } else if (period % 100 > 19 && period % 10 === 0) {
             return units[period[0] - 1] + ' hundred ' + tens[period[1] - 2] + powers[array.length - index - 1] + ' ';
         } else if (period % 100 > 19) {
@@ -45,3 +45,4 @@ let string_this_float = (float) => {
     string = string[0].toUpperCase() + string.slice(1);
     return string;
 }
+string_this_float(180020)
