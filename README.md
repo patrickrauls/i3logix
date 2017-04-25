@@ -3,7 +3,7 @@
 Write some code that will accept an amount and convert it to the appropriate string.
 
 ### example
-Convert number `2523.04` to string `Two thousand five hundred twenty-three and 04/100`
+Convert number `2523.04` to string `Two thousand five hundred twenty-three and 04/100 dollars`
 Code should handle up to `1000000.00` with precision to the hundredths.
 
 ### assumptions
