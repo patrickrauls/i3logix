@@ -11,4 +11,4 @@ Code should handle up to `1000000.00` with precision to the hundredths.
 - Substring representing decimals must be returned even if 0
 
 ## Answer
-In `write_checks.js` you'll find my answer provided the above assumptions. Though the prompt asks for "some code", I will assume what is desired is a function that takes one argument and returns a string. Let me know if Javascript is not OK. The answer outputs precision to the hundredth place, but needn't receive that precision as an input. 
+In `write_checks.js` you'll find my answer provided the above assumptions. Though the prompt asks for "some code", I will assume what is desired is a function that takes one argument and returns a string. Let me know if Javascript is not OK. The answer outputs precision to the hundredth place, but needn't receive that precision as an input. Answer can be checked with `string_this_float(328032.12)` or some other floating point number. 
