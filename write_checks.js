@@ -1,19 +1,19 @@
 let string_this_float = (float) => {
     let number = Math.abs(float),
-        dollars = '' + Math.floor(number), //read somewhere coercion was faster than toString()
         pennies = (number % 1).toFixed(2).slice(-2),
+        dollars = (number % 1).toFixed(2) == 1 ? '' + (Math.floor(number) + 1) : '' + Math.floor(number), //read somewhere coercion was faster than toString()
         magnitude = dollars.length,
         periods = [],
         powers = [ '', ' thousand', ' million'], //this can be expanded for greater amounts
         tens = ['twenty', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'],
         units = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'],
         teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-
+  
     for (let i = magnitude; i > 0; i -= 3) {
         //chunking this into groups of three
         periods.unshift(dollars.substring(i, i - 3))
     }
-    let chunks = periods.map((period, index, array) => {
+    let string_array = periods.map((period, index, array) => {
         if (period == 0) {
           return '';
         } else if (period < 10) { 
@@ -34,11 +34,12 @@ let string_this_float = (float) => {
             return units[period[0] - 1] + ' hundred ' + units[period % 100 - 1] + powers[array.length - index - 1] + ' '
         }
     })
-    let string = chunks.join('');
+    let string = string_array.join('');
     //handle that negative
     if (float < 0) {
       string = 'negative ' + string;
     }
     dollars == 0 ? string = pennies + '/100 dollars' : string += 'and ' + pennies + '/100 dollars';
-    return string[0].toUpperCase() + string.slice(1);
+    string = string[0].toUpperCase() + string.slice(1);
+    return string
 }
