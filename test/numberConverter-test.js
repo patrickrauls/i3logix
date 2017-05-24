@@ -24,8 +24,17 @@ describe('string_this_float', () => {
   it('returns Negative zero and 84/100', () => {
     assert.deepEqual(string_this_float(-0.84), 'Negative zero and 84/100 dollars')
   })
-  it('returns Fifty two and 00/100 dollars', () => {
+  it('returns Fifty two dollars', () => {
     assert.deepEqual(string_this_float(51.999), 'Fifty-two dollars')
+  })
+  it('returns One thousand five hundred and 00/100 dollars', () => {
+    assert.deepEqual(string_this_float(1500.01), 'One thousand five hundred and 01/100 dollars')
+  })
+  it('returns One million five hundred thousand dollars', () => {
+    assert.deepEqual(string_this_float(1500000.00), 'One million five hundred thousand dollars')
+  })
+  it('returns One million five hundred thousand and 08/100 dollars', () => {
+    assert.deepEqual(string_this_float(1500000.08), 'One million five hundred thousand and 08/100 dollars')
   })
   it('returns One million dollars', () => {
     assert.deepEqual(string_this_float(1000000), 'One million dollars')
